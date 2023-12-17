@@ -1,215 +1,259 @@
-// 1. დაწერეთ ფუნქცია რომელსაც გადასცემთ ციფრს // თუ ციფრი დადებითია ფუნქციამ უნდა დააბრუნოს "დადებითია", თუ // არა "უარყოფითია"
+const characters = [
+   {
+     name: "Luke Skywalker",
+     height: "172",
+     mass: "77",
+     eye_color: "blue",
+     gender: "male",
+   },
+   {
+     name: "Darth Vader",
+     height: "202",
+     mass: "136",
+     eye_color: "yellow",
+     gender: "male",
+   },
+   {
+     name: "Leia Organa",
+     height: "150",
+     mass: "49",
+     eye_color: "brown",
+     gender: "female",
+   },
+   {
+     name: "Anakin Skywalker",
+     height: "188",
+     mass: "84",
+     eye_color: "blue",
+     gender: "male",
+   },
+ ];
+ 
+// 1) Get an array of all names
 
-// function checkNumbers(x) {
-//   if (x >= 0) {
-//     console.log("dadebitia");
-//   } else if (x < 0) {
-//     console.log("uarkofitia");
-//   } else {
-//     console.log("error");
+// function getNames(arr){
+//    let allName=[];
+//    for(let i=0;i<arr.length;i++){
+//       allName.push(arr[i].name)
+//    }
+//    return allName
+// }
+// console.log(getNames(characters))
+
+
+// 2) Get an array of all heights
+
+//  function getHeight(arr){
+//       let allHeight=[];
+//       for(let i=0;i<arr.length;i++){
+//          allHeight.push(arr[i].height)
+//       }
+//       return allHeight
+//    }
+//    console.log(getHeight(characters))
+
+
+// 3) Get an array of objects with just name and height properties
+
+// let nameHeight=characters.map((i)=>{
+//    return {
+//       name:i.name,
+//       height:i.height
+//    }
+// })
+// console.log(nameHeight)
+
+
+ // 4) Get an array of all first names
+
+//  let names=characters.map((i)=>{
+//   return i.name.split(" ")[0]
+//  })
+// console.log(names)
+
+// 5) Get the total mass of all characters
+//  let totalMass=characters.reduce((accumulator,item)=>{
+//   return accumulator+parseInt(item.mass)
+//  },0)
+//  console.log(totalMass)
+
+
+ // 6) Get the total height of all characters
+//  let totalHeight=characters.reduce((accumulator,item)=>{
+//   return accumulator+parseInt(item.height)
+//  },0)
+//  console.log(totalHeight)
+
+
+// 7) Get the total number of characters in all the character names
+//  function characterNameNumber(arr){
+//   let lengthofName=[];
+//   for(let i=0;i<arr.length;i++){
+//    let names=arr[i].name;
+//    let nameslength=names.length;
+//    lengthofName.push(nameslength)
 //   }
-// }
-// checkNumbers(-15);
+// return lengthofName
+//  }
+//  console.log(characterNameNumber(characters))
 
+// //////////////////////////////////////////////////
 
-// 2. დაწერეთ ფუნქცია რომელიც დააბრუნებს ყველა ციფრის ჯამს // 1 დან 100 მდე
+// let characterNames=characters.map((i)=>{
+//   return i.name
+// })
+// console.log(characterNames)
 
-// function sum(numb) {
-//   let cvladi = 0;
-//   for (let i = 1; i <= numb; i++) {
-//     cvladi = cvladi + i;
+// let length=characterNames.map((j)=>{
+//   return j.length
+// })
+// console.log(length)
+
+// 8) Get the total number of characters by eye color (hint. a map of eye color to count)
+
+//  let eyeColor=characters.map((i)=>{
+//   let count=0;
+//   if(i.eye_color==="yellow"){
+//     count ++
 //   }
-//   console.log(cvladi);
-// }
-
-// sum(100);
-
-
-// 3. დაწერეთ ფუნქცია რომელსაც გადასცემთ ციფრს, ფუნქციამ უნდა // დააბრუნოს ეს ციფრი კენტია თუ ლუწი
-
-// function checkNumb(x) {
-//   if (typeof x !== "number") {
-//     console.log("es ar aris cifri");
-//   } else if (x % 2 === 0) {
-//     console.log("luwia");
-//   } else {
-//     console.log("kentia");
-//   }
-// }
-
-// checkNumb("oeuhrgfo3");
+// return count
+//  })
+//  console.log(eyeColor)
 
 
-// 4. შექმენით ობიექტი car რომელსაც ექნება year და model.
-
-// let car = { year: 2000, model: "Mercedes" };
-
-// console.log(car);
-// დაწერეთ ფუნქცია რომელსაც გადასცემთ ამ მანქანის ობიექტს // და ფუნქციამ უნდა დააბრუნოს მანქანის ასაკი
-
-// function checkAge(car) {
-
-// const currentYear=new Date().getFullYear()
-// return currentYear -car.year 
-//   console.log(2023 - car.year);
-// }
-// checkAge(car);
-
-
-// 5. დაწერეთ ფუნქცია რომელსაც გადავცემთ ციფრების მასივს, // მაგალითად [1,4,88,99, 123]. ფუნქციამ უნდა იპოვოს და დააბრუნოს // მასივის უდიდესი ციფრი
-
-// let arr = [1, 34, 17, 1525, -2];
-// function udidesiCifri(arr) {
-//   let numb = 0;
-//   for (let i = 0; i < arr.length; i++) {
-//     if (numb < arr[i]) {
-//       numb = arr[i];
+// 9) Get characters with mass greater than 100
+// function mass(arr){
+//   let result=[]
+//   for(let i=0;i<arr.length;i++){
+//     if(parseInt(arr[i].mass)>100 ){
+//     result.push(arr[i]) 
 //     }
 //   }
-//   console.log(numb);
+//   return result
 // }
+// console.log(mass(characters))
 
-// udidesiCifri(arr);
+// /////////////////////////////////////
+
+// let filteredCharacterMass=characters.filter((i)=>{
+//   return parseInt(i.mass)>100 
+// })
+// console.log(filteredCharacterMass)
+
+//10)  Get characters with height less than 200
+//  let filteredMass=characters.filter((i)=>{
+//   return parseInt(i.height)<200
+//  })
+//  console.log(filteredMass)
 
 
+// 11) Get all male characters
+//  let filtered=characters.filter((i)=>{
+//   return i.gender==="male"
+//  })
+//  console.log(filtered)
 
-// 6. გააკეთეთ იგივე ოღონდ დააბრუნეთ უმცირესი ციფრი
+//12)  Get all female characters
+//  let filtered=characters.filter((i)=>{
+//   return i.gender==="female"
+//  })
+//  console.log(filtered)
 
-// let arr = [1, 34, 17, 1525, -2, -30];
-// function umciresiCifri(arr) {
-//   let numb = 0;
-//   for (let i = 0; i < arr.length; i++) {
-//     if (numb > arr[i]) {
-//       numb = arr[i];
-//     }
+
+ // 13) Sort by name
+//  let sortedCharacters = characters.sort((a, b) => {
+// if(a.name<b.name) return -1 
+// });
+// console.log(sortedCharacters);
+
+
+ // 14) Sort by mass
+//  let sortedMass=characters.sort((a,b)=>{
+//   return parseInt(b.mass-a.mass) 
+//  })
+//  console.log(sortedMass)
+
+
+//15)  Sort by height
+//  let sortedHeight=characters.sort((a,b)=>{
+//   return parseInt(b.height-a.height)
+//  })
+//  console.log(sortedHeight)
+
+
+//16) Sort by gender
+//  let sortedGender=characters.sort((a,b)=>{
+// if(a.gender==="female") return -1
+//  })
+//  console.log(sortedGender)
+
+
+//17)  Does every character have blue eyes?
+//  function hasBlueEyes(arr) {
+//   return arr.every(i => i.eye_color === "blue");
+// }
+// console.log(hasBlueEyes(characters));
+
+
+// 18) Does every character have mass more than 40?
+//  function hasheight(arr){
+//   return arr.every(i=>i.height>40)
+//  }
+//  console.log(hasheight(characters))
+
+
+// 19) Is every character shorter than 200?
+//  function isShort(arr){
+//   return arr.every(i=>i.height<200)
+//  }
+//  console.log(isShort(characters))
+
+
+//20) Is every character male?
+//  function isMale(arr){
+//   return arr.every(i=>i.gender==="male")
+//  }
+//  console.log(isMale(characters))
+
+
+// 21) Is there at least one male character?
+//  function atLeastOneMale(arr){
+//   return arr.some(i=>i.gender==="female")
+//  }
+//  console.log(atLeastOneMale(characters))
+
+
+// 22) Is there at least one character with blue eyes?
+//  function atLeastOneBlueeyes(arr){
+//   return arr.some(i=>i.eye_color==="blue")
+//  }
+//  console.log(atLeastOneBlueeyes(characters))
+
+
+// 23) Is there at least one character taller than 200?
+//  function atLeastOnetaller(arr){
+//   return arr.some(i=>i.height>200)
+//  }
+//  console.log(atLeastOnetaller(characters))
+
+
+// 24) Is there at least one character that has mass less than 50?
+//  function atLeastOnemass(arr){
+//   return arr.some(i=>i.mass>50)
+//  }
+//  console.log(atLeastOnemass(characters))
+ 
+
+
+// 25) array prototype - last()
+
+// Array.prototype.last=function(){
+//   if(this.length>0){
+//     return this[this.length-1]
+//   }else{
+//     return "the array is empty"
 //   }
-//   console.log(numb);
 // }
-
-// umciresiCifri(arr);
-
-
-// 7. დაწერეთ ფუნქცია რომელსაც გადასცემთ სიტყვას, // ფუნქციამ უნდა დააბრუნოს ამ სიტყვის შებრუნებული ვერსია, // მაგალითად თუ გადავცემთ someFn("ერთი"), უნდა დააბრუნოს "ითრე"
-
-// function shebrunebuli(word) {
-//   let newArr = "";
-
-//   for (let i = word.length - 1; i >= 0; i--) {
-//     newArr = newArr + word[i];
-//   }
-//   console.log(newArr);
-// }
-// shebrunebuli("nika");
-
-
-
-//////////////////// ///////////////////ახალი დავალება/////////////////////////////
-
-
-
-// #1
-// დაწერეთ ფუნქცია რომელსაც გადასცემთ წინადადებას და ციფრს
-// მაგალითად fn("გამარჯობა, როგორ ხარ?", 5)
-// ფუნქციამ უნდა შეამოკლოს ხუთი სიმბოლო და დაამატოს ბოლოში "..."
-// და დააბრუნოს შედეგი "გამარ..."
-
-
-
-// function dots(string, numb) {
-//     if (string.length > numb) {
-//         return string.slice(0, numb) + "...";
-//     } else {
-//         return string;
-//     }
-// }
-
-// console.log(dots("tekle jankhoteli", 8));
-
-
-
-// #3
-// დაწერეთ ფუნქცია რომელსაც გადასცემთ ტელეფონის ნომერს
-// და ქვეყანას
-// მაგალითად fn("995599123456", "GE")
-// თუ ქვეყანა არის GE დააბრუნოს +995599123456
-// თუ ქვეყანა არის US დააბრუნოს +1(995)99123456
-// თუ ქვეყანა არის RU დააბრუნოს +7(995)99123456
-// თუ ქვეყანა არის სხვა დააბრუნოს შეცდომა "არ ვიცით რა ქვეყანაა ეს"
-
-
-// function checkTelNumb(number,region){
-
-//     if(region==="GE"){
-//         console.log(`+${number} `)
-//     }else if(region==="US"){
-//         console.log(`+1(${number.slice(0,3)})${number.slice(3)}`)
-//     }else if(region==="RU"){
-//         console.log(`+7(${number.slice(0,3)})${number.slice(3)}`)
-//     }else{
-//         console.log("this is not a country")
-//     }
-// }
-// checkTelNumb("995599123456","RU")
-
-
-
-
-// #4
-// დაწერეთ ფუნქცია რომელსაც გადასცემთ ციფრების მასივს
-// მაგალითად fn([1, 2, 3, 3, 5, 2, 7, 8, 7, 10])
-// დააბრუნოს მასივის ყველა უნიკალური ელემენტი
-// მაგალითად [1, 2, 3, 5, 7, 8, 10]
-
-// function unique(x){
-//     let newArr=[];
-
-//     for(let i=0; i<x.length; i++){
-//         if(!newArr.includes(x[i])){
-//             newArr.push(x[i])
-//         }
-//     }
-//     return newArr
-// }
-
-// console.log(unique([1,2,5,88,88]))
-
-
-// #5
-// დაწერეთ ბანკომატის ფუნქციონალი რომელსაც გადასცემთ ციფრს
-// ბანკომატში გვაქვს 200 , 100 , 50, 20, 10, 5 ლარიანი კუპიურები
-// ფუნქციამ უნდა გვითხრას რამდენ ცალს და რამდენ ლარიან კუპიურად
-// დაგვიშლის ჩვენს თანხას
-// მაგალითად თუ ვეტყვით რომ გვინდა 555 ლარი
-// ფუნქციამ უნდა დაგვიბრუნოს
-// 2 ცალი 200 ლარიანი
-// 1 ცალი 100 ლარიანი
-// 1 ცალი 50 ლარიანი
-// 1 ცალი 5 ლარიანი
-
-
-
-// function bankomati(x){
-//     let kupiura=[200,100,50,5];
-//     let functionResult=[];
-
-//     for(let i of kupiura){
-//         let count=0;
-//         while(x>=i){
-//             x=x-i;
-//             count ++
-//         }
-
-//         if(count>0){
-//             functionResult[i]=count;
-//         }
-
-//     }
-//     return functionResult;
-// }
-
-// let tanxa=[555];
-// console.log(bankomati(tanxa))
-
-
-
+// let myarr=[]
+// console.log(myarr.last())
 
